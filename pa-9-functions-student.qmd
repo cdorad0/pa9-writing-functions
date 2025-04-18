@@ -56,7 +56,7 @@ divide_and_round(test)  #you should see mostly values of 1 and 2, plus an NA
 ```{r}
 #| label: q4
 
-ifelse(nums %% 9 == 0 ___ nums %% 12 == 0, ____ , ____)  #it should say FALSE for 9 and 12 positions
+ifelse(nums %% 9 == 0 | nums %% 12 == 0, FALSE, TRUE)  #it should say FALSE for 9 and 12 positions
  
 ```
 
@@ -66,9 +66,10 @@ ifelse(nums %% 9 == 0 ___ nums %% 12 == 0, ____ , ____)  #it should say FALSE fo
 #| label: q5
 
 no_nines_or_twelves <- function(vec) {
-
+  ifelse(vec %% 9 == 0 | vec %% 12 == 0, FALSE, TRUE)
 }
 
+no_nines_or_twelves(nums)
 ```
 
 **6. Test your function by running the code below.**
@@ -104,14 +105,14 @@ Fill in the skeleton below. Remember the default should be `start` as 1.
 ```{r}
 #| label: q7
 
-every_other <- function(vec, _________){
+every_other <- function(vec, start=1) {
   
   if (start == 2) {
-    vec[]
+    vec[(seq_along(vec)) %% 2 == 0]
   } 
   
   else if (start == 1) {
-    vec[]
+    vec[(seq_along(vec)) %% 2 > 0]
   }
 
 }
@@ -148,7 +149,7 @@ nums[cumsum(nums) >= 30]  #returns only numbers 8+
 #| label: q9
 
 shorten <- function(x, sum){
-
+  x[cumsum(x) >= sum]
 }
 
 ```
