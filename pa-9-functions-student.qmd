@@ -22,9 +22,9 @@ You will write several small functions, then use them to unscramble a message. M
 
 ```{r}
 #| label: q1
-
+# divide each element in the vector by the smallest element and round the results to the nearest whole number.
 nums <- 3:12
-
+round(nums/min(nums))
 ```
 
 
@@ -34,8 +34,10 @@ nums <- 3:12
 #| label: q2
 
 divide_and_round <- function(vec){
+  round(vec/min(vec, na.rm = TRUE))
 
-}
+}  
+divide_and_round(nums)
 ```
 
 **3. Test your function by running the code below.**
